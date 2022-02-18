@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:football_score/themes/colors.dart';
+import 'package:football_score/themes/app_constants.dart';
 
 class LightTheme {
   static ThemeData of(BuildContext context) => ThemeData(
         brightness: Brightness.light,
-        fontFamily: defaultFontFamily,
+        fontFamily: defaultLightFontFamily,
         appBarTheme: const AppBarTheme(
           iconTheme: IconThemeData(color: lightThemeIconColor),
           systemOverlayStyle: SystemUiOverlayStyle(
@@ -16,7 +16,7 @@ class LightTheme {
           elevation: 0,
           titleTextStyle: TextStyle(
             color: lightThemeTextColor,
-            fontFamily: defaultFontFamily,
+            fontFamily: defaultLightFontFamily,
             fontSize: appBarFontSize,
             fontWeight: FontWeight.bold,
           ),
@@ -26,14 +26,14 @@ class LightTheme {
         textTheme: TextTheme(
           subtitle1: Theme.of(context).textTheme.subtitle1!.copyWith(
                 color: lightThemeTextColor,
-                fontFamily: defaultFontFamily,
+                fontFamily: defaultLightFontFamily,
               ),
           bodyText2: Theme.of(context).textTheme.bodyText2!.copyWith(
-                fontFamily: defaultFontFamily,
+                fontFamily: defaultLightFontFamily,
                 color: lightThemeTextColor,
               ),
           bodyText1: const TextStyle(
-            fontFamily: defaultFontFamily,
+            fontFamily: defaultLightFontFamily,
             color: lightThemeTextColor,
             fontSize: bodyText1FontSize,
             fontWeight: FontWeight.w600,

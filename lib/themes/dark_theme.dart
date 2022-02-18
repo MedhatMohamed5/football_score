@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:football_score/themes/colors.dart';
+import 'package:football_score/themes/app_constants.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class DarkTheme {
   static ThemeData of(BuildContext context) => ThemeData(
-        fontFamily: defaultFontFamily,
+        fontFamily: defaultDarkFontFamily,
         brightness: Brightness.dark,
         appBarTheme: AppBarTheme(
           iconTheme: const IconThemeData(color: darkThemeIconColor),
@@ -16,7 +16,7 @@ class DarkTheme {
           backgroundColor: HexColor('333739'),
           elevation: 0,
           titleTextStyle: const TextStyle(
-            fontFamily: defaultFontFamily,
+            fontFamily: defaultDarkFontFamily,
             color: darkThemeTextColor,
             fontSize: appBarFontSize,
             fontWeight: FontWeight.bold,
@@ -46,15 +46,15 @@ class DarkTheme {
         ),
         textTheme: TextTheme(
           subtitle1: Theme.of(context).textTheme.subtitle1!.copyWith(
-                fontFamily: defaultFontFamily,
+                fontFamily: defaultDarkFontFamily,
                 color: darkThemeTextColor,
               ),
           bodyText2: Theme.of(context).textTheme.bodyText2!.copyWith(
-                fontFamily: defaultFontFamily,
+                fontFamily: defaultDarkFontFamily,
                 color: darkThemeTextColor,
               ),
           bodyText1: const TextStyle(
-            fontFamily: defaultFontFamily,
+            fontFamily: defaultDarkFontFamily,
             color: darkThemeTextColor,
             fontSize: bodyText1FontSize,
             fontWeight: FontWeight.w600,

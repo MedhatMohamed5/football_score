@@ -14,7 +14,8 @@ const Color lightThemeTextColor = Colors.black;
 const Color lightThemeStatusColor = Colors.white;
 const Color lightThemeBackgroundColor = Colors.white;
 
-const String defaultFontFamily = 'Jannah';
+const String defaultDarkFontFamily = 'Jannah';
+const String defaultLightFontFamily = 'Cairo';
 
 const double bodyText1FontSize = 18;
 const double appBarFontSize = 20;
