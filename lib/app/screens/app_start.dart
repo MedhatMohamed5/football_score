@@ -13,6 +13,7 @@ class AppStart extends StatelessWidget {
       child: BlocConsumer<AppCubit, AppState>(
           builder: (context, state) {
             return MaterialApp(
+              debugShowCheckedModeBanner: false,
               title: 'Flutter Demo',
               theme: context.read<AppCubit>().currentTheme,
               home: Scaffold(

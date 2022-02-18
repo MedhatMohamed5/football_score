@@ -13,12 +13,12 @@ class AppCubit extends Cubit<AppState> {
   void changeTheme(BuildContext context) {
     currentThemeMode ??= ThemeMode.system;
 
-    if (currentThemeMode != ThemeMode.dark) {
-      currentTheme = DarkTheme.of(context);
-      currentThemeMode = ThemeMode.dark;
-    } else {
+    if (currentThemeMode != ThemeMode.light) {
       currentTheme = LightTheme.of(context);
       currentThemeMode = ThemeMode.light;
+    } else {
+      currentTheme = DarkTheme.of(context);
+      currentThemeMode = ThemeMode.dark;
     }
 
     emit(AppThemeChange());
