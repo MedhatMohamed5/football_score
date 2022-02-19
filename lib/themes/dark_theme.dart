@@ -1,19 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:football_score/themes/app_constants.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class DarkTheme {
   static ThemeData of(BuildContext context) => ThemeData(
         fontFamily: defaultDarkFontFamily,
+        tabBarTheme: TabBarTheme(
+          unselectedLabelColor: defaultColor,
+          indicator: const BoxDecoration(
+            borderRadius: BorderRadiusDirectional.all(
+              Radius.circular(26),
+              // topEnd: Radius.circular(16),
+              // topStart: Radius.circular(16),
+            ),
+            color: defaultColor,
+          ),
+          labelColor: darkThemeTabIconColor,
+        ),
         brightness: Brightness.dark,
         appBarTheme: AppBarTheme(
           iconTheme: const IconThemeData(color: darkThemeIconColor),
           systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: HexColor('333739'),
+            statusBarColor: darkHexColor,
             statusBarIconBrightness: Brightness.light,
           ),
-          backgroundColor: HexColor('333739'),
+          backgroundColor: darkHexColor,
           elevation: 0,
           titleTextStyle: const TextStyle(
             fontFamily: defaultDarkFontFamily,
@@ -31,14 +42,14 @@ class DarkTheme {
         ),
         hintColor: darkThemeTextColor,
         iconTheme: const IconThemeData(color: darkThemeIconColor),
-        scaffoldBackgroundColor: HexColor('333739'),
+        scaffoldBackgroundColor: darkHexColor,
         primarySwatch: defaultColor,
         // primaryColor: Colors.white,
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: defaultColor,
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: HexColor('333739'),
+          backgroundColor: darkHexColor,
           selectedItemColor: defaultColor,
           unselectedItemColor: Colors.grey,
           elevation: 20,

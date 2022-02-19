@@ -4,6 +4,19 @@ import 'package:football_score/themes/app_constants.dart';
 
 class LightTheme {
   static ThemeData of(BuildContext context) => ThemeData(
+        tabBarTheme: const TabBarTheme(
+          unselectedLabelColor: defaultColor,
+          indicator: BoxDecoration(
+            borderRadius: BorderRadiusDirectional.all(
+              Radius.circular(26),
+              // topEnd: Radius.circular(16),
+              // topStart: Radius.circular(16),
+            ),
+            color: defaultColor,
+          ),
+          labelColor: lightThemeTabIconColor,
+        ),
+        iconTheme: const IconThemeData(color: lightThemeIconColor),
         brightness: Brightness.light,
         fontFamily: defaultLightFontFamily,
         appBarTheme: const AppBarTheme(
@@ -15,7 +28,7 @@ class LightTheme {
           backgroundColor: lightThemeBackgroundColor,
           elevation: 0,
           titleTextStyle: TextStyle(
-            color: lightThemeTextColor,
+            color: defaultColor,
             fontFamily: defaultLightFontFamily,
             fontSize: appBarFontSize,
             fontWeight: FontWeight.bold,
