@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_score/app/cubit/app_cubit.dart';
 import 'package:football_score/app/cubit/app_states.dart';
+import 'package:football_score/features/competition/cubit/competition_cubit.dart';
 import 'package:football_score/features/home/cubit/home_cubit.dart';
 import 'package:football_score/features/home/screens/home_screen.dart';
 
@@ -17,6 +18,9 @@ class AppStart extends StatelessWidget {
         ),
         BlocProvider<HomeCubit>(
           create: (context) => HomeCubit()..initTabs(),
+        ),
+        BlocProvider<CompetitionCubit>(
+          create: (context) => CompetitionCubit()..initCompetitions(),
         ),
       ],
       child: BlocConsumer<AppCubit, AppState>(
