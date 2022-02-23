@@ -11,3 +11,5 @@ class ComptitionErrorState extends CompetitionState {
 
   ComptitionErrorState({this.error});
 }
+
+class CompetitonStandingSortedState extends CompetitionState {}

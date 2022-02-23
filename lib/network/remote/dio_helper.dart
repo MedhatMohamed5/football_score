@@ -22,7 +22,7 @@ class DioHelper {
       } else {
         params.addAll({'plan': 'TIER_ONE'});
       }
-      response = await _dioObject.get(path!, queryParameters: params);
+      response = await _dioObject.get(path??"", queryParameters: params);
     } on DioError catch (e) {
       response = e.response!;
     }

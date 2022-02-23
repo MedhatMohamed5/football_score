@@ -21,7 +21,10 @@ class CompetitionCubit extends Cubit<CompetitionState> {
 
         for (var element in (dataDecoded['competitions'] as List)) {
           var currentCompetition = CompetitionModel.fromJson(element);
-          var competitionStandings = await getStandings(currentCompetition.id!);
+
+          var competitionStandings =
+              await getStandings(currentCompetition.id ?? 0);
+
           currentCompetition.standings = competitionStandings;
           competitions.add(currentCompetition);
         }
@@ -51,5 +54,21 @@ class CompetitionCubit extends Cubit<CompetitionState> {
       standings = [];
     }
     return standings;
+  }
+
+  void sortStandings(int? id) {
+    CompetitionModel? competition = competitions.firstWhere(
+      (element) => element.id == id,
+      orElse: () => CompetitionModel(),
+    );
+
+    if (competition.id != null && competition.standings != null) {
+      List<StandingModel>? standings = competition.standings;
+
+      standings = standings!.reversed.toList();
+
+      competition.standings = standings;
+      emit(CompetitonStandingSortedState());
+    }
   }
 }

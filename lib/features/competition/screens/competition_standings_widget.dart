@@ -2,36 +2,49 @@ import 'package:flutter/material.dart';
 import 'package:football_score/features/competition/model/standings_model.dart';
 
 class StandingsWidget extends StatelessWidget {
-  const StandingsWidget({Key? key, this.standings}) : super(key: key);
+  const StandingsWidget({Key? key, this.standings, this.onSort})
+      : super(key: key);
 
   final List<StandingModel>? standings;
+  final Function(int, bool)? onSort;
 
   @override
   Widget build(BuildContext context) {
+    bool sortAsc = standings == null
+        ? true
+        : (standings!.isNotEmpty && standings!.length < 2)
+            ? true
+            : standings![0].position! < standings![1].position!;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: standings!.isNotEmpty
           ? SingleChildScrollView(
               scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
               child: SizedBox(
                 height: 200,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
+                  physics: const BouncingScrollPhysics(),
                   child: DataTable(
                     headingTextStyle:
                         Theme.of(context).textTheme.bodyText2!.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
                     sortColumnIndex: 0,
-                    sortAscending: false,
-                    columns: const [
-                      DataColumn(label: Text('Pos')),
-                      DataColumn(label: Text('Name')),
-                      DataColumn(label: Text('PG')),
-                      DataColumn(label: Text('P')),
-                      DataColumn(label: Text('W')),
-                      DataColumn(label: Text('L')),
-                      DataColumn(label: Text('D')),
+                    sortAscending: sortAsc,
+                    columns: [
+                      DataColumn(
+                        label: const Text('Pos'),
+                        numeric: true,
+                        onSort: onSort,
+                      ),
+                      const DataColumn(label: Text('Name')),
+                      const DataColumn(label: Text('PG')),
+                      const DataColumn(label: Text('P')),
+                      const DataColumn(label: Text('W')),
+                      const DataColumn(label: Text('L')),
+                      const DataColumn(label: Text('D')),
                     ],
                     rows: standings!
                         .map(

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_score/features/competition/cubit/competition_cubit.dart';
 import 'package:football_score/features/competition/cubit/competition_state.dart';
 import 'package:football_score/features/competition/screens/competition_list_widget.dart';
+import 'package:football_score/themes/app_constants.dart';
 
 class CompetitionScreen extends StatefulWidget {
   const CompetitionScreen({Key? key}) : super(key: key);
@@ -26,7 +27,14 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
           child: CompetitionList(competitons: cubit.competitions),
         );
       },
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is ComptitionErrorState) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(state.error!),
+            backgroundColor: errorColor,
+          ));
+        }
+      },
     );
   }
 }
