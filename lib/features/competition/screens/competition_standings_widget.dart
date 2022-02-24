@@ -12,7 +12,7 @@ class StandingsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     bool sortAsc = standings == null
         ? true
-        : (standings!.isNotEmpty && standings!.length < 2)
+        : standings!.isEmpty || (standings!.isNotEmpty && standings!.length < 2)
             ? true
             : standings![0].position! < standings![1].position!;
     return Padding(
